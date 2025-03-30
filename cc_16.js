@@ -28,3 +28,20 @@ function fetchProductsThen() {
             showError(error);
         });
 }
+
+// Task 3: Fetch Products with async/await
+async function fetchProductsAsync() {
+    console.log("Trying async/await approach now...");
+    
+    try {
+        const response = await fetch('https://www.course-api.com/javascript-store-products');
+
+        const products = await response.json();
+        showProducts(products); // Display them on page
+        
+    } catch (error) {
+        console.error("Caught an error:", error);
+        showError(error);
+    }
+}
+
