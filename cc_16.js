@@ -80,3 +80,10 @@ function showProducts(products) {
         container.appendChild(productCard);
     });
 }
+
+// Task 5: Error handling function
+function handleError(error) {
+    //Printing out the error message to the console
+    console.log("An error occurred: ", error);
+}
+
