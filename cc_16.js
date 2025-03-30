@@ -65,7 +65,7 @@ function showProducts(products) {
         productCard.className = 'product-card';
         
         // Format price from cents to dollars
-        const price = (product.fields.price / 100).toFixed(2);
+        const price = (product.fields.price).toFixed(2);
         
         productCard.innerHTML = `
             <img src="${product.fields.image[0].url}" 
