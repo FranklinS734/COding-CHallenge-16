@@ -45,3 +45,38 @@ async function fetchProductsAsync() {
     }
 }
 
+// Task 4: Function to show products on the page
+function showProducts(products) {
+    const container = document.getElementById('product-container');
+    const loading = document.getElementById('loading');
+    
+    // Only show first 5 products as required
+    const productsToShow = products.slice(0, 5);
+    
+    // Check if we got any products
+    if (productsToShow.length === 0) {
+        container.innerHTML = '<p class="no-products">No products available</p>';
+        return;
+    }
+    
+    // Create HTML for each product
+    productsToShow.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        
+        // Format price from cents to dollars
+        const price = (product.fields.price / 100).toFixed(2);
+        
+        productCard.innerHTML = `
+            <img src="${product.fields.image[0].url}" 
+                 alt="${product.fields.name}" 
+                 class="product-image">
+            <div class="product-info">
+                <h3>${product.fields.name}</h3>
+                <p class="price">$${price}</p>
+            </div>
+        `;
+        
+        container.appendChild(productCard);
+    });
+}
