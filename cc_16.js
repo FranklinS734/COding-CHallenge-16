@@ -87,3 +87,8 @@ function handleError(error) {
     console.log("An error occurred: ", error);
 }
 
+//Task 6: Call Your Fetch Functions
+
+fetchProductsThen();
+
+fetchProductsAsync();
